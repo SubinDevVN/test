@@ -3,47 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Message</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .message {
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>Free APIs List</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="message" id="message"></div>
-
-    <script>
-        function getParameterByName(name, url = window.location.href) {
-            name = name.replace(/[\[\]]/g, '\\$&');
-            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-            let results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const message = getParameterByName('msg');
-            const messageDiv = document.getElementById('message');
-            if (message) {
-                messageDiv.textContent = message;
-            } else {
-                messageDiv.textContent = 'No message provided.';
-            }
-        });
-    </script>
+    <div class="container">
+        <h1>List of Free APIs</h1>
+        <input type="text" id="search" placeholder="Search for APIs...">
+        <div id="api-list"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
