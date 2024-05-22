@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const apiListContainer = document.getElementById('api-list');
     const searchInput = document.getElementById('search');
+    const apiSampleInput = document.getElementById('api-sample');
+    const useApiButton = document.getElementById('use-api');
 
-    const fetchAPIs = async () => {
+    const fetchAPIs = async (apiUrl = 'https://api.publicapis.org/entries') => {
         try {
-            const response = await fetch('https://api.publicapis.org/entries');
+            const response = await fetch(apiUrl);
             const data = await response.json();
             displayAPIs(data.entries);
         } catch (error) {
@@ -43,5 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
         displayAPIs(filteredAPIs);
     });
 
-    fetchAPIs();
-});
+    useApiButton.addEventListener('click
