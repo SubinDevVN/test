@@ -1,9 +1,22 @@
-document.getElementById('loadData').addEventListener('click', () => {
-    loadData();
-});
+/* public/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
 
-async function loadData() {
-    const data = await fetchData();
-    const dataContainer = document.getElementById('dataContainer');
-    dataContainer.innerHTML = JSON.stringify(data, null, 2);
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#keyContainer {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
