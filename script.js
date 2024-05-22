@@ -1,21 +1,6 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}
-
-h1 {
-    color: #333;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 10px 0;
-    cursor: pointer;
-}
-
-#dataContainer {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
+// public/script.js
+document.getElementById('generateKey').addEventListener('click', async () => {
+    const response = await fetch('https://subindevvn.github.io/test/random'); // Thay 'your-server-url' bằng URL của máy chủ
+    const data = await response.json();
+    document.getElementById('keyContainer').innerText = JSON.stringify(data, null, 2);
+});
