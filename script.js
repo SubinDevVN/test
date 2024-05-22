@@ -1,48 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const apiListContainer = document.getElementById('api-list');
-    const searchInput = document.getElementById('search');
-    const apiSampleInput = document.getElementById('api-sample');
-    const useApiButton = document.getElementById('use-api');
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
 
-    const fetchAPIs = async (apiUrl = 'https://api.publicapis.org/entries') => {
-        try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            displayAPIs(data.entries);
-        } catch (error) {
-            console.error('Error fetching APIs:', error);
-        }
-    };
+h1 {
+    color: #333;
+}
 
-    const displayAPIs = (apis) => {
-        apiListContainer.innerHTML = '';
-        apis.forEach(api => {
-            const apiElement = document.createElement('div');
-            apiElement.className = 'api';
-            apiElement.innerHTML = `
-                <h2>${api.API}</h2>
-                <p><strong>Description:</strong> ${api.Description}</p>
-                <p><strong>Category:</strong> ${api.Category}</p>
-                <p><a href="${api.Link}" target="_blank">Visit API</a></p>
-            `;
-            apiListContainer.appendChild(apiElement);
-        });
-    };
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
 
-    const filterAPIs = (apis, searchTerm) => {
-        return apis.filter(api => 
-            api.API.toLowerCase().includes(searchTerm.toLowerCase()) || 
-            api.Description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            api.Category.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    };
-
-    searchInput.addEventListener('input', async (event) => {
-        const searchTerm = event.target.value;
-        const response = await fetch('https://api.publicapis.org/entries');
-        const data = await response.json();
-        const filteredAPIs = filterAPIs(data.entries, searchTerm);
-        displayAPIs(filteredAPIs);
-    });
-
-    useApiButton.addEventListener('click
+#dataContainer {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
